@@ -44,33 +44,17 @@
         </tr>
       </thead>
       <tbody>
+        <% products.forEach(product =>{ %>
         <tr>
-          <th>1</th>
-          <td>Atomic Habits</td>
-          <td>A supremely practical and useful book. </td>
-          <td scope="col">300</td>
+          <th><%= product.id %></th>
+          <td><%= product.name %> </td>
+          <td><%= product.desc %></td>
+          <td scope="col"><%= product.price %></td>
           <td>
-            <img src="https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg" />
+            <img src="<%= product.imageUrl %>" />
           </td>
         </tr>
-        <tr>
-          <th>2</th>
-          <td>Ikigai</td>
-          <td>The Japanese secret to a long and happy life</td>
-          <td scope="col">340</td>
-          <td>
-            <img src="https://m.media-amazon.com/images/I/51xwGSNX-EL._SX356_BO1,204,203,200_.jpg" />
-          </td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>Deep Work</td>
-          <td>RULES FOR FOCUSED SUCCESS IN A DISTRACTED WORLD</td>
-          <td scope="col">280</td>
-          <td>
-            <img src="https://m.media-amazon.com/images/I/31PBdo581fL._SX317_BO1,204,203,200_.jpg" />
-          </td>
-        </tr>
+        <% })%>
       </tbody>
     </table>
   </div>
