@@ -5,6 +5,9 @@ import ejsLayouts from "express-ejs-layouts";
 
 const server = express();
 
+//parse form data
+server.use(express.urlencoded({ extended: true }));
+
 server.set("view engine", "ejs")
 server.set("views", path.join(path.resolve(), "src", "views"))
 server.use(ejsLayouts);
