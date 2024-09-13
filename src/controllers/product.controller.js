@@ -23,7 +23,7 @@ export default class ProductController {
       errors.push("Price should be a positive number");
     }
     try {
-      const validUrl = new URL(imageUrl);
+      new URL(imageUrl);
     } catch (error) {
       errors.push("Invalid URL");
     }
