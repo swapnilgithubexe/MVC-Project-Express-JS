@@ -16,6 +16,10 @@ export default class ProductModel {
     let newProduct = new ProductModel(products.length + 1, newProductObj.name, newProductObj.price, newProductObj.desc, newProductObj.imageUrl)
     products.push(newProduct)
   }
+
+  static getById(id) {
+    return products.find((p) => p.id === id);
+  }
 }
 
 var products = [
