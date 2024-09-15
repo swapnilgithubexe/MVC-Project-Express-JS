@@ -12,6 +12,13 @@ export default class ProductModel {
     return products;
   }
 
+  static update(productObj) {
+    const productIndex = products.findIndex(product => product.id === parseInt(productObj.id));
+
+    products[productIndex] = productObj;
+
+  }
+
   static add(newProductObj) {
     let newProduct = new ProductModel(products.length + 1, newProductObj.name, newProductObj.price, newProductObj.desc, newProductObj.imageUrl)
     products.push(newProduct)

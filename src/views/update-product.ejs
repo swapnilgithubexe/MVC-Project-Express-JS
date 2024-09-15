@@ -9,29 +9,30 @@
   </div>
   <% } %>
 
-    <form action="/" method="post">
-      <input type="hidden" class="form-control" id="id">
+    <form action="/update" method="post">
+      <input type="hidden" class="form-control" id="id" name="id" value="<%= product.id %>">
 
       <div class="mb-3">
         <label for="name" class="form-label">Product Name</label>
-        <input type="text" class="form-control" name="name" id="name" required>
+        <input type="text" class="form-control" name="name" id="name" required value="<%= product.name %>">
       </div>
 
       <div class="mb-3">
         <label for="desc" class="form-label">Product Description</label>
-        <textarea class="form-control" id="desc" required rows="3" name="desc"></textarea>
+        <textarea class="form-control" id="desc" required rows="3" name="desc" ><%= product.desc %>
+        </textarea>
       </div>
 
       <div class="mb-3">
         <label for="price" class="form-label">Price</label>
-        <input type="number" class="form-control" id="price" required name="price" min="100">
+        <input type="number" class="form-control" id="price" required name="price" min="100" value="<%= product.price %>">
       </div>
 
       <div class="mb-3">
         <label for="imageUrl" class="form-label">Image URL</label>
-        <input type="url" class="form-control" id="imageUrl" required name="imageUrl">
+        <input type="url" class="form-control" id="imageUrl" required name="imageUrl" value="<%= product.imageUrl %>">
       </div>
 
-      <button type="submit" class="btn btn-primary">Add Product</button>
+      <button type="submit" class="btn btn-primary">Update Product</button>
 
     </form>

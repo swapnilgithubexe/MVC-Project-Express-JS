@@ -1,3 +1,4 @@
+<h1>Products</h1>
 <table class="table table-dark">
   <thead>
     <tr>
@@ -6,6 +7,7 @@
       <th scope="col">Description</th>
       <th scope="col">Price</th>
       <th scope="col">Image</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +27,9 @@
         </td>
         <td>
           <img src="<%= product.imageUrl %>" width="70" />
+        </td>
+        <td>
+          <a href="/update/<%= product.id %>" class="btn btn-warning">Update</a>
         </td>
       </tr>
       <% })%>
