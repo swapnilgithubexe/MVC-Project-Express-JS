@@ -3,11 +3,14 @@ import ProductController from "./src/controllers/product.controller.js";
 import path from "path";
 import ejsLayouts from "express-ejs-layouts";
 import validationCheck from "./middlewares/validation.middleware.js";
+import exp from "constants";
 
 const server = express();
 
 //parse form data
 server.use(express.urlencoded({ extended: true }));
+
+server.use(express.static("public"))
 
 server.set("view engine", "ejs")
 server.set("views", path.join(path.resolve(), "src", "views"))
@@ -23,7 +26,7 @@ server.post("/", validationCheck, productController.addNewProduct)
 
 server.post("/update", productController.postUpdateProduct)
 
-server.get("/delete/:id", productController.deleteProduct)
+server.post("/delete/:id", productController.deleteProduct)
 
 server.use(express.static("src/views"));
 

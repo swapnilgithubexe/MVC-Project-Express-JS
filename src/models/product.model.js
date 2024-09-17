@@ -20,9 +20,18 @@ export default class ProductModel {
   }
 
   static delete(id) {
-    const index = products.findIndex((product) => product.id == id)
-    products.splice(index, 1);
+    const productId = Number(id);
+    const index = products.findIndex((product) => product.id === productId);
+
+    if (index !== -1) {
+      products.splice(index, 1);
+      console.log(`Product with id ${id} deleted`);
+    } else {
+      console.log(`Product with id ${id} not found`);
+    }
   }
+
+
 
 
   static add(newProductObj) {
