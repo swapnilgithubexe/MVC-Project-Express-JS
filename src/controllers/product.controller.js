@@ -53,4 +53,12 @@ export default class ProductController {
     res.render("products", { products: products });
   }
 
+  deleteProduct(req, res) {
+    const productId = req.params.id;
+    console.log(productId)
+    ProductModel.delete({ id: productId })
+    let products = ProductModel.get();
+    res.render("products", { products: products });
+  }
+
 }

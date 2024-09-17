@@ -23,6 +23,8 @@ server.post("/", validationCheck, productController.addNewProduct)
 
 server.post("/update", productController.postUpdateProduct)
 
+server.get("/delete/:id", productController.deleteProduct)
+
 server.use(express.static("src/views"));
 
 server.listen(3400, () => {

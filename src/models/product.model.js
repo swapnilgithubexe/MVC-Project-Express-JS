@@ -19,10 +19,18 @@ export default class ProductModel {
 
   }
 
+  static delete(id) {
+    const index = products.findIndex((product) => product.id == id)
+    products.splice(index, 1);
+  }
+
+
   static add(newProductObj) {
     let newProduct = new ProductModel(products.length + 1, newProductObj.name, newProductObj.price, newProductObj.desc, newProductObj.imageUrl)
     products.push(newProduct)
   }
+
+
 
   static getById(id) {
     return products.find((p) => p.id === id);
