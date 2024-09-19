@@ -13,25 +13,13 @@ export default class ProductController {
   }
 
   addNewProduct(req, res) {
-    ProductModel.add(req.body);
-    let products = ProductModel.get();
+    const { name, desc, price } = req.body;
+    const imageUrl = "images/" + req.file.filename;
+    ProductModel.add(name, desc, price, imageUrl);
+    var products = ProductModel.get();
     res.render("products", { products: products });
   }
 
-  // getUpdateProductView(req, res, next) {
-  //   const id = req.params.id;
-
-  //   const productFound = ProductModel.getById(id);
-
-  //   if (productFound) {
-  //     res.render("update-product", {
-  //       product: productFound,
-  //       errorMessage: null,
-  //     });
-  //   } else {
-  //     res.status(401).send("Product not found!");
-  //   }
-  // }
   getUpdateProductView(req, res, next) {
     const id = parseInt(req.params.id, 10);
 

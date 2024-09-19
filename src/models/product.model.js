@@ -34,8 +34,8 @@ export default class ProductModel {
 
 
 
-  static add(newProductObj) {
-    let newProduct = new ProductModel(products.length + 1, newProductObj.name, newProductObj.price, newProductObj.desc, newProductObj.imageUrl)
+  static add(name, desc, price, imageUrl) {
+    let newProduct = new ProductModel(products.length + 1, name, price, desc, imageUrl)
     products.push(newProduct)
   }
 

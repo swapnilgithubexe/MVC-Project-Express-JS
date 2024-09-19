@@ -4,6 +4,7 @@ import path from "path";
 import ejsLayouts from "express-ejs-layouts";
 import validationCheck from "./middlewares/validation.middleware.js";
 import exp from "constants";
+import { uploadFile } from "./middlewares/fileupload.middleware.js";
 
 const server = express();
 
@@ -22,7 +23,7 @@ server.get("/", productController.getProducts);
 server.get('/new', productController.getAddForm)
 server.get("/update/:id", productController.getUpdateProductView);
 
-server.post("/", validationCheck, productController.addNewProduct)
+server.post("/", uploadFile.single("imageUrl"), validationCheck, productController.addNewProduct)
 
 server.post("/update", productController.postUpdateProduct)
 
