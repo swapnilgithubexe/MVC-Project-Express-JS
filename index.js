@@ -35,8 +35,12 @@ server.use(express.static("src/views"));
 //Login
 server.get("/login", userController.getLogin)
 
+server.post("/login", userController.loginCheck)
+
 //Register
 server.get("/register", userController.getRegistrationForm)
+
+server.post("/register", userController.postRegister);
 
 server.listen(3400, () => {
   console.log("Server is listening on port number 3400.");

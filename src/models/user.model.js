@@ -6,5 +6,15 @@ export default class UserModel {
     this.password = password;
   }
 
+  static addUser(name, email, password) {
+    let newUser = new UserModel(Users.length + 1, name, email, password);
+    Users.push(newUser);
+  }
 
+  static loginHandler(email, password) {
+    let isValidUser = Users.find((user) => user.email == email && user.password == password);
+    return isValidUser;
+
+  }
 }
+var Users = [];
