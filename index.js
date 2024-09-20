@@ -3,7 +3,7 @@ import ProductController from "./src/controllers/product.controller.js";
 import path from "path";
 import ejsLayouts from "express-ejs-layouts";
 import validationCheck from "./middlewares/validation.middleware.js";
-import exp from "constants";
+import UserController from "./src/controllers/user.controller.js";
 import { uploadFile } from "./middlewares/fileupload.middleware.js";
 
 const server = express();
@@ -18,6 +18,7 @@ server.set("views", path.join(path.resolve(), "src", "views"))
 server.use(ejsLayouts);
 
 const productController = new ProductController();
+const userController = new UserController();
 
 server.get("/", productController.getProducts);
 server.get('/new', productController.getAddForm)
@@ -30,6 +31,9 @@ server.post("/update", productController.postUpdateProduct)
 server.post("/delete/:id", productController.deleteProduct)
 
 server.use(express.static("src/views"));
+
+//Register
+server.get("/register", userController.getRegistrationForm)
 
 server.listen(3400, () => {
   console.log("Server is listening on port number 3400.");
