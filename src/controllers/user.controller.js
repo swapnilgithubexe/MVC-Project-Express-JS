@@ -22,11 +22,12 @@ export default class UserController {
 
     if (!user) {
       return res.render("login", { errorMessage: "Invalid Credentials!" })
-    } else {
-      let products = ProductModel.get();
-
-      return res.render("products", { products: products });
     }
+    req.session.userEmail = email;
+    let products = ProductModel.get();
+
+    return res.render("products", { products: products });
+
   }
 
 

@@ -5,8 +5,18 @@ import ejsLayouts from "express-ejs-layouts";
 import validationCheck from "./middlewares/validation.middleware.js";
 import UserController from "./src/controllers/user.controller.js";
 import { uploadFile } from "./middlewares/fileupload.middleware.js";
+import session from "express-session";
 
 const server = express();
+
+//session
+server.use(session({
+  secret: "TELLMEDOYOUBLEED",
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false },
+
+}));
 
 //parse form data
 server.use(express.urlencoded({ extended: true }));
