@@ -32,6 +32,9 @@ server.post("/delete/:id", productController.deleteProduct)
 
 server.use(express.static("src/views"));
 
+//Login
+server.get("/login", userController.getLogin)
+
 //Register
 server.get("/register", userController.getRegistrationForm)
 
