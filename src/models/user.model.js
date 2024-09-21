@@ -12,9 +12,10 @@ export default class UserModel {
   }
 
   static loginHandler(email, password) {
-    let isValidUser = Users.find((user) => user.email == email && user.password == password);
-    return isValidUser;
 
+    let isValidUser = Users.find((user) => user.email === email && user.password === password);
+    return isValidUser;
   }
+
 }
-var Users = [];
+var Users = [{ "name": "Swapnil Dutta", "email": "swapnildutta2002@gmail.com", "password": "11111" }];

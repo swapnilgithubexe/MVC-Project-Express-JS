@@ -1,27 +1,24 @@
 <h1 class="mt-5 mb-4">Login</h1>
 
 <% if (errorMessage){ %>
-
   <div class="alert alert-danger mb-3" role="alert">
     <%= errorMessage %>
   </div>
-
-  </div>
   <% } %>
 
+    <!-- Updated form without enctype -->
+    <form action="/login" method="POST">
 
-<form action="/login" method="post" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" id="email" required>
+      </div>
 
-  <div class="mb-3">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" name="email" id="email" required>
-  </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="password" required>
+      </div>
 
-  <div class="mb-3">
-    <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" name="password" id="password" required>
-  </div>
+      <button type="submit" class="btn btn-primary">Login</button>
 
-  <button type="submit" class="btn btn-primary">Login</button>
-
-</form>
+    </form>

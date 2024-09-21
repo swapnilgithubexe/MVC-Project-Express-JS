@@ -31,12 +31,18 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/new">New Product</a>
           </li>
+          <% if(locals.userEmail){ %>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/logout">Log Out</a>
+            </li>
+            <%}else{ %>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/register">Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/login">Login</a>
+            <a class="nav-link active" aria-current="page" href="/login">Log In</a>
           </li>
+          <%}%>
         </ul>
       </div>
     </div>
