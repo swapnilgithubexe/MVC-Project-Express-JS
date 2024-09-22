@@ -18,8 +18,6 @@ export default class UserController {
 
   loginCheck(req, res) {
     const { email, password } = req.body;
-    console.log("Email:", email);  // Debug email
-    console.log("Password:", password);  // Debug password
 
     const user = UserModel.loginHandler(email, password);
 
@@ -32,6 +30,17 @@ export default class UserController {
 
     let products = ProductModel.get();
     return res.render("products", { products: products, userEmail: req.session.userEmail });
+  }
+
+  logout(req, res) {
+    //destroy session
+    req.session.destroy((err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.redirect("/login");
+      }
+    })
   }
 
 

@@ -1,12 +1,18 @@
+//Core Imports
 import express from "express";
-import ProductController from "./src/controllers/product.controller.js";
+import session from "express-session";
 import path from "path";
 import ejsLayouts from "express-ejs-layouts";
-import validationCheck from "./middlewares/validation.middleware.js";
+
+//Controllers
 import UserController from "./src/controllers/user.controller.js";
-import { uploadFile } from "./middlewares/fileupload.middleware.js";
-import session from "express-session";
-import { isAuth } from "./middlewares/auth.middleware.js";
+import ProductController from "./src/controllers/product.controller.js";
+
+//Middlewares
+import { isAuth } from "./src/middlewares/auth.middleware.js";
+import { uploadFile } from "./src/middlewares/fileupload.middleware.js";
+import validationCheck from "./src/middlewares/validation.middleware.js";
+
 
 
 const server = express();
@@ -24,10 +30,7 @@ server.use(session({
   cookie: { secure: false },
 
 }));
-// server.use((req, res, next) => {
-//   console.log("Session details:", req.session);
-//   next();
-// });
+
 
 server.use(express.static("public"))
 
@@ -47,6 +50,8 @@ server.post("/login", (req, res) => userController.loginCheck(req, res));
 server.get("/register", userController.getRegistrationForm)
 
 server.post("/register", userController.postRegister);
+
+server.get("/logout", userController.logout);
 
 //other routes
 
