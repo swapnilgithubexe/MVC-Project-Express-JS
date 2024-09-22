@@ -23,7 +23,7 @@ const server = express();
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 server.use(cookieParser());
-server.use(setLastVisit)
+// server.use(setLastVisit)
 
 
 //session
@@ -59,7 +59,7 @@ server.get("/logout", userController.logout);
 
 //other routes
 
-server.get("/", isAuth, productController.getProducts);
+server.get("/", setLastVisit, isAuth, productController.getProducts);
 server.get('/new', isAuth, productController.getAddForm)
 server.get("/update/:id", isAuth, productController.getUpdateProductView);
 
