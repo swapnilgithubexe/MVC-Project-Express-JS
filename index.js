@@ -3,6 +3,7 @@ import express from "express";
 import session from "express-session";
 import path from "path";
 import ejsLayouts from "express-ejs-layouts";
+import cookieParser from "cookie-parser";
 
 //Controllers
 import UserController from "./src/controllers/user.controller.js";
@@ -12,6 +13,7 @@ import ProductController from "./src/controllers/product.controller.js";
 import { isAuth } from "./src/middlewares/auth.middleware.js";
 import { uploadFile } from "./src/middlewares/fileupload.middleware.js";
 import validationCheck from "./src/middlewares/validation.middleware.js";
+import { setLastVisit } from "./src/middlewares/lastVisit.middleware.js"
 
 
 
@@ -20,6 +22,8 @@ const server = express();
 //parse form data
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
+server.use(cookieParser());
+server.use(setLastVisit)
 
 
 //session
